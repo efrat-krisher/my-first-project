@@ -1,0 +1,644 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A2BB7A59-E71A-409B-B953-AE2DF3F4BBB8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>EfratProject</RootNamespace>
+    <AssemblyName>EfratProject</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="about.xaml.cs">
+      <DependentUpon>about.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AllBasarK.xaml.cs">
+      <DependentUpon>AllBasarK.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AllOfotK.xaml.cs">
+      <DependentUpon>AllOfotK.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converter.cs" />
+    <Compile Include="DirectorSearchProduct.xaml.cs">
+      <DependentUpon>DirectorSearchProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Distribution times.xaml.cs">
+      <DependentUpon>Distribution times.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Finish.xaml.cs">
+      <DependentUpon>Finish.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageConverter.cs" />
+    <Compile Include="KatalogProducts.xaml.cs">
+      <DependentUpon>KatalogProducts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LSTbuy.xaml.cs">
+      <DependentUpon>LSTbuy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="lstInvitationsALL.xaml.cs">
+      <DependentUpon>lstInvitationsALL.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="lstInvitationsCity.xaml.cs">
+      <DependentUpon>lstInvitationsCity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LSTinvitationsPerut.xaml.cs">
+      <DependentUpon>LSTinvitationsPerut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="lstInvitationsToday.xaml.cs">
+      <DependentUpon>lstInvitationsToday.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyImages.cs" />
+    <Compile Include="Pay.xaml.cs">
+      <DependentUpon>Pay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PayByCard.xaml.cs">
+      <DependentUpon>PayByCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Rbif.xaml.cs">
+      <DependentUpon>Rbif.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes.xaml.cs">
+      <DependentUpon>Recipes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Rharost.xaml.cs">
+      <DependentUpon>Rharost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Rpasta.xaml.cs">
+      <DependentUpon>Rpasta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Rtavshil.xaml.cs">
+      <DependentUpon>Rtavshil.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Rtzli.xaml.cs">
+      <DependentUpon>Rtzli.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="sal.xaml.cs">
+      <DependentUpon>sal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Search.xaml.cs">
+      <DependentUpon>Search.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCproduct.xaml.cs">
+      <DependentUpon>UCproduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCshowProduct.xaml.cs">
+      <DependentUpon>UCshowProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ValidationRulls.cs" />
+    <Page Include="about.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddCity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddKategor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddKosher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddNewProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AllBasarK.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AllBasarT.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AllOfotK.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AllOfotT.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomerIshi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Director.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Director1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Director2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DirectorSearchProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Distribution times.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Entery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Finish.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="invitation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KatalogProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LSTbuy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="lstCity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="lstCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="lstInvitations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="lstInvitationsALL.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="lstInvitationsCity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LSTinvitationsPerut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="lstInvitationsToday.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="lstKategor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="lstKosher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="lstproducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="AddCity.xaml.cs">
+      <DependentUpon>AddCity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddKategor.xaml.cs">
+      <DependentUpon>AddKategor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddKosher.xaml.cs">
+      <DependentUpon>AddKosher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewProduct.xaml.cs">
+      <DependentUpon>AddNewProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AllBasarT.xaml.cs">
+      <DependentUpon>AllBasarT.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AllOfotT.xaml.cs">
+      <DependentUpon>AllOfotT.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Connected Services\ServiceReference2\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerIshi.xaml.cs">
+      <DependentUpon>CustomerIshi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Director.xaml.cs">
+      <DependentUpon>Director.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Director1.xaml.cs">
+      <DependentUpon>Director1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Director2.xaml.cs">
+      <DependentUpon>Director2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Entery.xaml.cs">
+      <DependentUpon>Entery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="invitation.xaml.cs">
+      <DependentUpon>invitation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="lstCity.xaml.cs">
+      <DependentUpon>lstCity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="lstCustomer.xaml.cs">
+      <DependentUpon>lstCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="lstInvitations.xaml.cs">
+      <DependentUpon>lstInvitations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="lstKategor.xaml.cs">
+      <DependentUpon>lstKategor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="lstKosher.xaml.cs">
+      <DependentUpon>lstKosher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="lstproducts.xaml.cs">
+      <DependentUpon>lstproducts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="MenuePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OldCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PayByCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rbif.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Recipes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rharost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rpasta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rtavshil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rtzli.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="sal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Search.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UCproduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCshowProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MenuePage.xaml.cs">
+      <DependentUpon>MenuePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewCustomer.xaml.cs">
+      <DependentUpon>NewCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OldCustomer.xaml.cs">
+      <DependentUpon>OldCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Partials.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Connected Services\ServiceReference2\EfratProject.ServiceReference2.BlProduct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference2\EfratProject.ServiceReference2.Cities.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference2\EfratProject.ServiceReference2.customers.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference2\EfratProject.ServiceReference2.hazmana.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference2\EfratProject.ServiceReference2.Inviting1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference2\EfratProject.ServiceReference2.kategor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference2\EfratProject.ServiceReference2.kosher.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference2\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference2\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference2\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference2\Service1.wsdl" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceReference2\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference2\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference2\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference2\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference2\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\455990792.jpg" />
+    <Resource Include="pictures\home-cat-2_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\LOGOEK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\backrround.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\plus.png" />
+    <Resource Include="pictures\user_plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\AddProduct.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\AddUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\AddPicture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\pageAddNewProduct.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\pageAddNewClient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\directIshi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\directEnter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\OK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\client.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\AddKategor.png" />
+    <Resource Include="pictures\AddKosher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\Director.png" />
+    <Resource Include="pictures\NewCustomer.png" />
+    <Resource Include="pictures\OldCustomer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\Ionicons md person.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\AddCity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\ProductDelete.png" />
+    <Resource Include="pictures\ProductRebuild.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\AddNewCity.png" />
+    <Resource Include="pictures\CityDelete.png" />
+    <Resource Include="pictures\CityRebuild.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\home.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\brankic1979 minus2.svg.png" />
+    <Resource Include="pictures\brankic1979 plus2.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\Clientp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\ishii.png" />
+    <Resource Include="pictures\sall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\HOMME.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\ABOAT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\ABOUT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\HOMMEE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\noimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\ElegantIcons arrow left.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\אודותינו123.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\22אזורי וזמני אספקה.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\לח1.PNG" />
+    <Resource Include="pictures\לח2.PNG" />
+    <Resource Include="pictures\לח3.PNG" />
+    <Resource Include="pictures\לח4.PNG" />
+    <Resource Include="pictures\לח5.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\מתכון ביף בורגיניון של שף הבית.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\233ביף בורגיניון של שף הבית.PNG" />
+    <Resource Include="pictures\תמונה - ביף בורגיניון של שף הבית.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\ביףףף.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\Rharost.PNG" />
+    <Resource Include="pictures\RharostPicture.jpg" />
+    <Resource Include="pictures\RharostStory.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\RharostName.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\Rpasta.PNG" />
+    <Resource Include="pictures\RpastaName.PNG" />
+    <Resource Include="pictures\RpastaStory.PNG" />
+    <Resource Include="pictures\RpastsPicture.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\Rtzli.PNG" />
+    <Resource Include="pictures\RtzliName.PNG" />
+    <Resource Include="pictures\RtzliPicture.jpg" />
+    <Resource Include="pictures\RtzliStory.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\RtavshilPicture.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\Rtavshil.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\RtavshilName.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\RtavshilStory.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\City.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\ABOATTTT.PNG" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

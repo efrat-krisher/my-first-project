@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="70ce5a19f6c7422385b5a9f0f47960b6" Name="Diagram1">
+        <EntityTypeShape EntityType="EfratDBModel.City" Width="1.5" PointX="6.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EfratDBModel.Customer" Width="1.5" PointX="12.375" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EfratDBModel.Hazmana" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EfratDBModel.inviting" Width="1.5" PointX="10.125" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EfratDBModel.Kategor" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EfratDBModel.Kosher" Width="1.5" PointX="7.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EfratDBModel.product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="EfratDBModel.FK_Customers_Cities" ManuallyRouted="false" />
+        <AssociationConnector Association="EfratDBModel.FK_inviting_ToCustomers" ManuallyRouted="false" />
+        <AssociationConnector Association="EfratDBModel.FK_Hazmana_Toinviting" ManuallyRouted="false" />
+        <AssociationConnector Association="EfratDBModel.FK_Hazmana_Toproduct" ManuallyRouted="false" />
+        <AssociationConnector Association="EfratDBModel.FK_product_ToKategor" ManuallyRouted="false" />
+        <AssociationConnector Association="EfratDBModel.FK_product_Kosher" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

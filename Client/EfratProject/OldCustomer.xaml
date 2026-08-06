@@ -1,0 +1,27 @@
+﻿<Page x:Class="EfratProject.OldCustomer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EfratProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OldCustomer">
+    <Page.Background>
+        <ImageBrush  ImageSource="/pictures/backrround.jpg" />
+    </Page.Background>
+    
+    <Grid  FlowDirection="RightToLeft">
+        <StackPanel HorizontalAlignment="Center">
+            <!--<TextBlock Text=" תודה שחזרת אלינו :)"  HorizontalAlignment="Center" FontSize="20" Background="CadetBlue"/>-->
+            <Image Source="/pictures/client.png" />
+            <TextBlock FontSize="17" Text="הכנס מספר טלפון" HorizontalAlignment="Center"/>
+            <TextBox Width="150" Height="25" Name="tx" FontSize="20" />
+            <TextBlock /> <!--//שורה ריקה סתם לרווח-->
+            <Button Background="Transparent" BorderThickness="0" IsDefault="True" Click="Button_Click">
+                <Image Height="53" Source="/pictures/OK.png" /> <!--לחצן אישור-->
+            </Button>
+
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,71 @@
+﻿<Page x:Class="EfratProject.lstproducts"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EfratProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="lstproducts" Background="White" >
+
+    <StackPanel  FlowDirection="RightToLeft">
+        <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight">
+            <Button Background="Transparent" BorderThickness="0" Click="AddNewProduct" Height="55">
+            <Image Source="/pictures/AddProduct.png" />
+        </Button>
+            <Button  Name="ProductDelete" Background="Transparent" BorderThickness="0" Click="DeleteProduct"  Height="55" >
+            <Image Source="/pictures/ProductDelete.png" /> <!--מחיקת מוצר-->
+        </Button>
+            <Button Background="Transparent" BorderThickness="0" Click="UpdateProduct" Height="55" >
+                <Image Source="/pictures/ProductRebuild.png" />
+            </Button>
+            <TextBox BorderThickness="2" Width="135" Name="search" FontSize="22" Height="48" TextChanged="search_TextChanged" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text=":חיפוש מוצר " FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Button x:Name="Home" Background="#FFF48139" Click="goHome" Height="57" Width="63" ToolTip="חזרה לדף הבית" >
+                <Image Source="/pictures/home.svg.png" Height="53" />
+                <!--בית-->
+            </Button>
+        </StackPanel>
+        <TextBlock Text="רשימת מוצרים" Background="Beige" />
+        <ListView x:Name="lstInvitations" Width="auto" FontSize="15">
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn Header="קוד מוצר" Width="85" DisplayMemberBinding="{Binding ProductCode}" />
+                    <GridViewColumn Header="שם" Width="85" DisplayMemberBinding="{Binding ProductName}" />
+                    <GridViewColumn Header="תמונה" Width="85"  >
+                    <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image>
+                                    <Image.Source>
+                                        <Binding Path="picture">
+                                            <Binding.Converter>
+                                                <local:PicturConvert/>
+                                            </Binding.Converter>
+                                        </Binding>
+                                    </Image.Source>
+                                </Image>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="כמות במלאי" Width="85" DisplayMemberBinding="{Binding AmountIn}" />
+                    <GridViewColumn Header="מחיר" Width="85" DisplayMemberBinding="{Binding price}" />
+                    <GridViewColumn Header="כשרות" Width="85" DisplayMemberBinding="{Binding Kosher.KosherName}" />
+                    <GridViewColumn Header="קטגוריה" Width="85" DisplayMemberBinding="{Binding Kategor.KategorName}"/>
+                    <!--<GridViewColumn Header="טרי" DisplayMemberBinding="{Binding tari}" />-->
+                    <GridViewColumn Header="טרי?" Width="100">
+                        <GridViewColumn.DisplayMemberBinding>
+                            <Binding Path="tari">
+                                <Binding.Converter>
+                                    <local:Converter/>
+                                </Binding.Converter>
+                            </Binding>
+                        </GridViewColumn.DisplayMemberBinding>
+                    </GridViewColumn>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Frame  Grid.Row="1" x:Name="f2"/>
+    </StackPanel>
+ 
+</Page>

@@ -1,0 +1,55 @@
+﻿<Page x:Class="EfratProject.invitation"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/ex
+      pression/blend/2008" 
+      xmlns:local="clr-namespace:EfratProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="invitation"
+      Loaded="Page_Loaded" >
+    <StackPanel  FlowDirection="RightToLeft" >
+        
+        <WrapPanel Background="Transparent" Height="70">
+            <!--<TextBlock  FontSize="30" Text="שלום ל" />
+            <TextBlock FontSize="30" Name="txtnamecustomerenter" />-->
+
+            <Button  BorderThickness="0"  Background="Transparent" Click="sal" Padding="-2">
+                <Image Source="/pictures/sall.png" /> <!--הסל שלי-->
+            </Button>
+            <Button   BorderThickness="0" Background="Transparent" Click="ishi" Padding="-2">
+                <Image  Source="/pictures/ishii.png" /> <!--איזור אישי-->
+            </Button>
+            <!--<Button x:Name="Home" Background="Transparent" Padding="-1"  BorderThickness="0" Click="GoHome" >
+                <Image Source="/pictures/HOMMEE.png" /> --><!--בית--><!--
+            </Button>-->
+            <Button  BorderThickness="0" Background="Transparent" Padding="-1" Click="about">
+                <Image Source="/pictures/ABOUT.png" /> <!--אודותינו-->
+            </Button>
+            <Button x:Name="Home" Content="התנתק" Padding="-1" BorderThickness="0"  Width="65" Click="GoHome" Background="#FFF38645" />
+            <!--התנתק-->
+
+            <!--<Button Content=" שאלות נפוצות " Click="AnsQ" Width="85" Background="#FFF38645" />-->
+            <Button Content=" מתכונים " Click="Rec" Width="65" Background="#FFF38645" />
+            <Button Content=" אזורי וימי חלוקה " Click="Deliver" Background="#FFF38645"/>
+            <Image Height="79"  Source="/pictures/Ionicons md person.svg.png" />
+            <DockPanel Background="Transparent">
+                <TextBlock   FontSize="30" Name="txtnamecustomerenter"  />
+                <TextBlock   FontSize="30" Text=" "   />
+                <TextBlock   FontSize="30" Name="txtnamecustomerenter1"  />
+                <TextBlock   FontSize="30" Text=" , משלוח קרוב בעיר "  />
+                <TextBlock   FontSize="30" Name="txtnamecity" FontWeight="Bold"  />
+                <TextBlock   FontSize="30" Text="  -יום  "  />
+                <TextBlock   FontSize="30" Name="txtDay"  FontWeight="Bold"  >
+                    <!--<local.Convert:ConvertDays/>-->
+                </TextBlock>
+                <Image Height="80" Source="/pictures/LOGOEK.png" />
+
+            </DockPanel>
+      
+        </WrapPanel>
+        <Frame x:Name="f1"/>
+
+    </StackPanel>
+</Page>

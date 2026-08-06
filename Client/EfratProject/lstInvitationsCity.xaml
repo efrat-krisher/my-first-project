@@ -1,0 +1,50 @@
+﻿<Page x:Class="EfratProject.lstInvitationsCity"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EfratProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="lstInvitationsCity">
+
+    <StackPanel FlowDirection="RightToLeft">
+        <DockPanel Background="Beige">
+           <TextBlock  FontSize="15" Text="הזמנות לפי ערים , בחר עיר ! " Background="White" Name="x1" /> 
+        </DockPanel>
+        
+        <ListView x:Name="LstCity" Width="auto" SelectionChanged="LstCity_SelectionChanged" FontSize="15" >
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn Header="שם העיר" DisplayMemberBinding="{Binding CityName}"/>
+                    <!--<GridViewColumn Header="יום חלוקה" DisplayMemberBinding="{Binding DayInWeek}"/>-->
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <DockPanel>
+            <TextBlock  FontSize="15" Text="הזמנות לאספקה ל" Background="White" Name="x" />
+            <TextBlock   FontSize="15" Name="txtCity" FontWeight="Bold"  />
+        </DockPanel>
+        <Button Content="אריזת הזמנה" Click="Perut" FontSize="15"/> 
+        <Button Content="מחיקת הזמנה" Click="Dlete"/>
+        <ListView x:Name="lstInvitations1" Width="auto" FontSize="15">
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn Header=" תאריך הזמנה" DisplayMemberBinding="{Binding Date}" Width="100"/>
+                    <!--<GridViewColumn Header="קוד לקוח" DisplayMemberBinding="{Binding Code}" Width="70"/>-->
+                    <GridViewColumn Header="שם פרטי " DisplayMemberBinding="{Binding Customer.FirstName}" Width="85"/>
+                    <GridViewColumn Header=" שם משפחה" DisplayMemberBinding="{Binding Customer.LastName}" Width="85"/>
+                    <GridViewColumn Header="טלפון" DisplayMemberBinding="{Binding Customer.phone}" Width="89"/>
+                    <GridViewColumn Header="עיר מגורים" DisplayMemberBinding="{Binding Customer.city1.CityName}" Width="78"/>
+                    <GridViewColumn Header="רחוב" DisplayMemberBinding="{Binding Customer.adress}" Width="85"/>
+                    <GridViewColumn Header="בית" DisplayMemberBinding="{Binding Customer.hous}" Width="45"/>
+                    <GridViewColumn Header="קומה" DisplayMemberBinding="{Binding Customer.floor}" Width="45"/>
+                    <GridViewColumn Header="דירה" DisplayMemberBinding="{Binding Customer.apartment}" Width="45"/>
+                    <GridViewColumn Header="סטטוס" DisplayMemberBinding="{Binding sent}" Width="55"/>
+                    <GridViewColumn Header="הערות" DisplayMemberBinding="{Binding notes}" Width="100"/>
+                    <!--נשלח או לא נשלח-->
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </StackPanel>
+</Page>

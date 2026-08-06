@@ -1,0 +1,30 @@
+﻿<Page x:Class="EfratProject.Entery"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EfratProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Entery" >
+    <Page.Background>
+        <ImageBrush ImageSource="/pictures/home-cat-2_2.jpg" />
+
+    </Page.Background>
+    <Grid >
+        <StackPanel>
+            <WrapPanel  Height="139" Width="810" >
+                <DockPanel HorizontalAlignment="Left" >
+                    <Button    Background="DarkSalmon" FontWeight="ExtraBold" FontSize="20" BorderBrush="Black" Content="מנהל" Click="Button_Click" Height="70" Width="80"  HorizontalAlignment="Left" Margin="0,-70,0,0"/>
+                </DockPanel>
+                <Grid HorizontalAlignment="Right" FlowDirection="RightToLeft"> <!--להצמיד את ה"מנהל" לצד שמאל ושלא יזוז-->
+                    <Image  Source="/pictures/LOGOEK.png" Margin="-551,0,550,0" />
+                </Grid>
+            </WrapPanel>
+            <Button Background="DarkSalmon" Content="לקוח חדש" FontSize="23" Height="85"
+                    Width="160" FontWeight="ExtraBold" BorderBrush="Black" Click="Button_Click_1" />
+            <Button Background="DarkSalmon" Content="לקוח קיים" FontSize="23" FontWeight="ExtraBold" BorderBrush="Black" Click="Button_Click_2" Height="85"  Width="160"/>
+        </StackPanel>
+    </Grid>
+</Page>
+

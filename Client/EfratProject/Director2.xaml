@@ -1,0 +1,27 @@
+﻿<Page x:Class="EfratProject.Director2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EfratProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Director2">
+
+    <Grid>
+        <StackPanel  HorizontalAlignment="Stretch">
+            <!--<TextBlock   Text="מנהל-איזור אישי" HorizontalAlignment="Center" FontSize="20" Background="CadetBlue"/>-->
+            <Image Source="/pictures/directIshi.png" />
+            <TextBlock Text="שם" HorizontalAlignment="Center"/>
+            <TextBox Width="150" Text="{Binding Path=name}"/>
+            <TextBlock Text="טלפון" HorizontalAlignment="Center"/>
+            <TextBox Width="150" Text="{Binding Path=phone}"/>
+            <Button  Background="Transparent" BorderThickness="0" Click="Button_Click">
+                <!--לחצן שמור-->
+                <Image Height="53" Source="/pictures/Save.png" />
+            </Button>
+            <TextBlock Name="txtbed" Foreground="red"/>
+            <TextBlock Name="txtgood" Foreground="Green"/>
+        </StackPanel>
+    </Grid>
+</Page>

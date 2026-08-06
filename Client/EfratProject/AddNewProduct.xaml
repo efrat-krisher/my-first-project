@@ -1,0 +1,64 @@
+﻿<Page x:Class="EfratProject.AddNewProduct"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EfratProject"
+      mc:Ignorable="d" 
+      Height="Auto"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddNewProduct" Background="White">
+
+    <Grid FlowDirection="RightToLeft">
+        
+        <StackPanel  HorizontalAlignment="Stretch">
+            
+            <!--<TextBlock   Text="הוספת מוצר חדש" HorizontalAlignment="Center" FontSize="20" Background="Beige"/>-->
+            <Image Source="/pictures/pageAddNewProduct.png" />
+            <TextBlock Text="שם"/>
+            <TextBox Width="150" Text="{Binding Path=ProductName}"/>
+            <TextBlock Text="כמות במלאי"/>
+            <!--<TextBox Width="150" Text="{Binding Path=AmountIn}"/>-->
+            <TextBox  Width="150" >
+                <Binding Path="AmountIn">
+                    <Binding.ValidationRules>
+                        <local:ValidationNum/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox>
+            <TextBlock Text="מחיר"/>
+            <TextBox Width="150" Text="{Binding Path=price}"/>
+            <TextBlock  Text="כשרות"/>
+            <ComboBox Name="cmKosher" SelectedItem="{Binding Kosher}" 
+                      SelectedValuePath="KosherCode"
+                        DisplayMemberPath="KosherName">
+            </ComboBox>
+            <TextBlock  Text="קטגוריה"/>
+            <ComboBox Name="cmKategor" SelectedItem="{Binding Kategor}" 
+                       SelectedValuePath="KategorCode" 
+                       DisplayMemberPath="KategorName" >
+            </ComboBox>
+            <CheckBox FlowDirection="RightToLeft" Content="האם טרי" IsChecked="{Binding tari}"/>
+            <Button Background="Transparent" BorderThickness="0" Click="AddPicture">
+                <!--לחצן הוספת תמונה-->
+                <Image  Height="53" Source="/pictures/AddPicture.png"  />
+            </Button>
+            <Button Content="הסר תמונה" Name="r" Visibility="Collapsed" FontSize="12" Height="20"  Width="108" BorderBrush="Black" BorderThickness="1" Click="deletp" HorizontalAlignment="Stretch"   />
+            <Image Height="85" x:Name="image1"/>
+            <Button  Background="Transparent" BorderThickness="0" Click="Save">
+                <!--לחצן שמור-->
+                <Image Height="53" Source="/pictures/Save.png" />
+            </Button>
+            <TextBlock Name="txtbed" Foreground="red"/>
+            <TextBlock Name="txtgood" Foreground="Green"/>
+            <WrapPanel HorizontalAlignment="Center">
+                <Button Content="למעבר לרשימת המוצרים" Click="Go" Background="Beige" Name="pass" Height="43" Visibility="Collapsed" />
+                <TextBlock Width="10"></TextBlock>
+                <Button Content="להוספת מוצר נוסף" Click="Go1" Background="Beige" Name="pass1"  Height="43" Visibility="Collapsed" />
+
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</Page>
+
+

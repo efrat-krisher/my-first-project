@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ServerProject.BLL" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ServerProject.BLL" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfcustomers">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="customers" nillable="true" type="tns:customers" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfcustomers" nillable="true" type="tns:ArrayOfcustomers" />
+  <xs:complexType name="customers">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeCustomer" type="xs:int" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="adress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="apartment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="city1" nillable="true" type="tns:Cities" />
+      <xs:element minOccurs="0" name="floor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="hous" type="xs:int" />
+      <xs:element minOccurs="0" name="mail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="phone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="customers" nillable="true" type="tns:customers" />
+  <xs:complexType name="Cities">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CityCode" type="xs:int" />
+      <xs:element minOccurs="0" name="CityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DayInWeek" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Cities" nillable="true" type="tns:Cities" />
+  <xs:complexType name="ArrayOfInviting">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Inviting" nillable="true" type="tns:Inviting" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInviting" nillable="true" type="tns:ArrayOfInviting" />
+  <xs:complexType name="Inviting">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Customer" nillable="true" type="tns:customers" />
+      <xs:element minOccurs="0" name="HazmanaCode" type="xs:int" />
+      <xs:element minOccurs="0" name="dateBuy" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dateSent" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="filnalPrice" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sent" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Inviting" nillable="true" type="tns:Inviting" />
+  <xs:complexType name="ArrayOfCities">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Cities" nillable="true" type="tns:Cities" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCities" nillable="true" type="tns:ArrayOfCities" />
+  <xs:complexType name="BlProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AmountIn" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Kategor" nillable="true" type="tns:kategor" />
+      <xs:element minOccurs="0" name="Kosher" nillable="true" type="tns:kosher" />
+      <xs:element minOccurs="0" name="ProductCode" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="picture" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="price" type="xs:double" />
+      <xs:element minOccurs="0" name="tari" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BlProduct" nillable="true" type="tns:BlProduct" />
+  <xs:complexType name="kategor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KategorCode" type="xs:int" />
+      <xs:element minOccurs="0" name="KategorName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KategorPicture" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="products" nillable="true" type="tns:ArrayOfBlProduct" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="kategor" nillable="true" type="tns:kategor" />
+  <xs:complexType name="ArrayOfBlProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BlProduct" nillable="true" type="tns:BlProduct" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBlProduct" nillable="true" type="tns:ArrayOfBlProduct" />
+  <xs:complexType name="kosher">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KosherCode" type="xs:int" />
+      <xs:element minOccurs="0" name="KosherName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KosherPicture" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="products" nillable="true" type="tns:ArrayOfBlProduct" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="kosher" nillable="true" type="tns:kosher" />
+  <xs:complexType name="ArrayOfkosher">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="kosher" nillable="true" type="tns:kosher" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfkosher" nillable="true" type="tns:ArrayOfkosher" />
+  <xs:complexType name="ArrayOfkategor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="kategor" nillable="true" type="tns:kategor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfkategor" nillable="true" type="tns:ArrayOfkategor" />
+  <xs:complexType name="ArrayOfhazmana">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="hazmana" nillable="true" type="tns:hazmana" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfhazmana" nillable="true" type="tns:ArrayOfhazmana" />
+  <xs:complexType name="hazmana">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:double" />
+      <xs:element minOccurs="0" name="inviting" nillable="true" type="tns:Inviting" />
+      <xs:element minOccurs="0" name="product" nillable="true" type="tns:BlProduct" />
+      <xs:element minOccurs="0" name="sent" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="hazmana" nillable="true" type="tns:hazmana" />
+</xs:schema>

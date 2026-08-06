@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EfratDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="CityCode" />
+          </Key>
+          <Property Name="CityCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DayInWeek" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CodeCustomer" />
+          </Key>
+          <Property Name="CodeCustomer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CodeCity" Type="int" Nullable="false" />
+          <Property Name="adress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="hous" Type="int" Nullable="false" />
+          <Property Name="apartment" Type="nchar" MaxLength="10" />
+          <Property Name="floor" Type="nchar" MaxLength="10" />
+          <Property Name="phone" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="mail" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Hazmana">
+          <Key>
+            <PropertyRef Name="HazmanaCode" />
+            <PropertyRef Name="ProductCode" />
+          </Key>
+          <Property Name="HazmanaCode" Type="int" Nullable="false" />
+          <Property Name="ProductCode" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="float" Nullable="false" />
+          <Property Name="sent" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inviting">
+          <Key>
+            <PropertyRef Name="HazmanaCode" />
+          </Key>
+          <Property Name="HazmanaCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodeCustomer" Type="int" Nullable="false" />
+          <Property Name="dateBuy" Type="datetime" Nullable="false" />
+          <Property Name="dateSent" Type="datetime" Nullable="false" />
+          <Property Name="sent" Type="bit" Nullable="false" />
+          <Property Name="filnalPrice" Type="float" />
+          <Property Name="notes" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Kategor">
+          <Key>
+            <PropertyRef Name="KategorCode" />
+          </Key>
+          <Property Name="KategorCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KategorName" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="KategorPicture" Type="image" />
+        </EntityType>
+        <EntityType Name="Kosher">
+          <Key>
+            <PropertyRef Name="KosherCode" />
+          </Key>
+          <Property Name="KosherCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KosherName" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="KosherPicture" Type="image" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="ProductCode" />
+          </Key>
+          <Property Name="ProductCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="price" Type="float" Nullable="false" />
+          <Property Name="ProductPicture" Type="nvarchar" MaxLength="50" />
+          <Property Name="KosherCode" Type="int" Nullable="false" />
+          <Property Name="tari" Type="bit" Nullable="false" />
+          <Property Name="KategorCode" Type="int" Nullable="false" />
+          <Property Name="AmountIn" Type="float" />
+        </EntityType>
+        <Association Name="FK_Customers_Cities">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityCode" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="CodeCity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hazmana_Toinviting">
+          <End Role="inviting" Type="Self.inviting" Multiplicity="1" />
+          <End Role="Hazmana" Type="Self.Hazmana" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inviting">
+              <PropertyRef Name="HazmanaCode" />
+            </Principal>
+            <Dependent Role="Hazmana">
+              <PropertyRef Name="HazmanaCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hazmana_Toproduct">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="Hazmana" Type="Self.Hazmana" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ProductCode" />
+            </Principal>
+            <Dependent Role="Hazmana">
+              <PropertyRef Name="ProductCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inviting_ToCustomers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="inviting" Type="Self.inviting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CodeCustomer" />
+            </Principal>
+            <Dependent Role="inviting">
+              <PropertyRef Name="CodeCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_Kosher">
+          <End Role="Kosher" Type="Self.Kosher" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kosher">
+              <PropertyRef Name="KosherCode" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="KosherCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_ToKategor">
+          <End Role="Kategor" Type="Self.Kategor" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategor">
+              <PropertyRef Name="KategorCode" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="KategorCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EfratDBModelStoreContainer">
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hazmana" EntityType="Self.Hazmana" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inviting" EntityType="Self.inviting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kategor" EntityType="Self.Kategor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kosher" EntityType="Self.Kosher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Customers_Cities" Association="Self.FK_Customers_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hazmana_Toinviting" Association="Self.FK_Hazmana_Toinviting">
+            <End Role="inviting" EntitySet="inviting" />
+            <End Role="Hazmana" EntitySet="Hazmana" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hazmana_Toproduct" Association="Self.FK_Hazmana_Toproduct">
+            <End Role="product" EntitySet="product" />
+            <End Role="Hazmana" EntitySet="Hazmana" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inviting_ToCustomers" Association="Self.FK_inviting_ToCustomers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="inviting" EntitySet="inviting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_Kosher" Association="Self.FK_product_Kosher">
+            <End Role="Kosher" EntitySet="Kosher" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_ToKategor" Association="Self.FK_product_ToKategor">
+            <End Role="Kategor" EntitySet="Kategor" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EfratDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityCode" />
+          </Key>
+          <Property Name="CityCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DayInWeek" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_Customers_Cities" FromRole="Cities" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CodeCustomer" />
+          </Key>
+          <Property Name="CodeCustomer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CodeCity" Type="Int32" Nullable="false" />
+          <Property Name="adress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="hous" Type="Int32" Nullable="false" />
+          <Property Name="apartment" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="floor" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Customers_Cities" FromRole="Customers" ToRole="Cities" />
+          <NavigationProperty Name="invitings" Relationship="Self.FK_inviting_ToCustomers" FromRole="Customers" ToRole="inviting" />
+        </EntityType>
+        <EntityType Name="Hazmana">
+          <Key>
+            <PropertyRef Name="HazmanaCode" />
+            <PropertyRef Name="ProductCode" />
+          </Key>
+          <Property Name="HazmanaCode" Type="Int32" Nullable="false" />
+          <Property Name="ProductCode" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+          <Property Name="sent" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="inviting" Relationship="Self.FK_Hazmana_Toinviting" FromRole="Hazmana" ToRole="inviting" />
+          <NavigationProperty Name="product" Relationship="Self.FK_Hazmana_Toproduct" FromRole="Hazmana" ToRole="product" />
+        </EntityType>
+        <EntityType Name="inviting">
+          <Key>
+            <PropertyRef Name="HazmanaCode" />
+          </Key>
+          <Property Name="HazmanaCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodeCustomer" Type="Int32" Nullable="false" />
+          <Property Name="dateBuy" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dateSent" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="sent" Type="Boolean" Nullable="false" />
+          <Property Name="filnalPrice" Type="Double" />
+          <Property Name="notes" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_inviting_ToCustomers" FromRole="inviting" ToRole="Customers" />
+          <NavigationProperty Name="Hazmanas" Relationship="Self.FK_Hazmana_Toinviting" FromRole="inviting" ToRole="Hazmana" />
+        </EntityType>
+        <EntityType Name="Kategor">
+          <Key>
+            <PropertyRef Name="KategorCode" />
+          </Key>
+          <Property Name="KategorCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KategorName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="KategorPicture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="products" Relationship="Self.FK_product_ToKategor" FromRole="Kategor" ToRole="product" />
+        </EntityType>
+        <EntityType Name="Kosher">
+          <Key>
+            <PropertyRef Name="KosherCode" />
+          </Key>
+          <Property Name="KosherCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KosherName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="KosherPicture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="products" Relationship="Self.FK_product_Kosher" FromRole="Kosher" ToRole="product" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="ProductCode" />
+          </Key>
+          <Property Name="ProductCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="price" Type="Double" Nullable="false" />
+          <Property Name="ProductPicture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KosherCode" Type="Int32" Nullable="false" />
+          <Property Name="tari" Type="Boolean" Nullable="false" />
+          <Property Name="KategorCode" Type="Int32" Nullable="false" />
+          <Property Name="AmountIn" Type="Double" />
+          <NavigationProperty Name="Hazmanas" Relationship="Self.FK_Hazmana_Toproduct" FromRole="product" ToRole="Hazmana" />
+          <NavigationProperty Name="Kategor" Relationship="Self.FK_product_ToKategor" FromRole="product" ToRole="Kategor" />
+          <NavigationProperty Name="Kosher" Relationship="Self.FK_product_Kosher" FromRole="product" ToRole="Kosher" />
+        </EntityType>
+        <Association Name="FK_Customers_Cities">
+          <End Role="Cities" Type="Self.City" Multiplicity="1" />
+          <End Role="Customers" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityCode" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="CodeCity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inviting_ToCustomers">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="inviting" Type="Self.inviting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CodeCustomer" />
+            </Principal>
+            <Dependent Role="inviting">
+              <PropertyRef Name="CodeCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hazmana_Toinviting">
+          <End Role="inviting" Type="Self.inviting" Multiplicity="1" />
+          <End Role="Hazmana" Type="Self.Hazmana" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inviting">
+              <PropertyRef Name="HazmanaCode" />
+            </Principal>
+            <Dependent Role="Hazmana">
+              <PropertyRef Name="HazmanaCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hazmana_Toproduct">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="Hazmana" Type="Self.Hazmana" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ProductCode" />
+            </Principal>
+            <Dependent Role="Hazmana">
+              <PropertyRef Name="ProductCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_ToKategor">
+          <End Role="Kategor" Type="Self.Kategor" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategor">
+              <PropertyRef Name="KategorCode" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="KategorCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_Kosher">
+          <End Role="Kosher" Type="Self.Kosher" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kosher">
+              <PropertyRef Name="KosherCode" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="KosherCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EfratDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Hazmanas" EntityType="Self.Hazmana" />
+          <EntitySet Name="invitings" EntityType="Self.inviting" />
+          <EntitySet Name="Kategors" EntityType="Self.Kategor" />
+          <EntitySet Name="Koshers" EntityType="Self.Kosher" />
+          <EntitySet Name="products" EntityType="Self.product" />
+          <AssociationSet Name="FK_Customers_Cities" Association="Self.FK_Customers_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inviting_ToCustomers" Association="Self.FK_inviting_ToCustomers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="inviting" EntitySet="invitings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hazmana_Toinviting" Association="Self.FK_Hazmana_Toinviting">
+            <End Role="inviting" EntitySet="invitings" />
+            <End Role="Hazmana" EntitySet="Hazmanas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hazmana_Toproduct" Association="Self.FK_Hazmana_Toproduct">
+            <End Role="product" EntitySet="products" />
+            <End Role="Hazmana" EntitySet="Hazmanas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_ToKategor" Association="Self.FK_product_ToKategor">
+            <End Role="Kategor" EntitySet="Kategors" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_Kosher" Association="Self.FK_product_Kosher">
+            <End Role="Kosher" EntitySet="Koshers" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EfratDBModelStoreContainer" CdmEntityContainer="EfratDBEntities">
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="EfratDBModel.City">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="CityCode" ColumnName="CityCode" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="DayInWeek" ColumnName="DayInWeek" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="EfratDBModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CodeCustomer" ColumnName="CodeCustomer" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="CodeCity" ColumnName="CodeCity" />
+                <ScalarProperty Name="adress" ColumnName="adress" />
+                <ScalarProperty Name="hous" ColumnName="hous" />
+                <ScalarProperty Name="apartment" ColumnName="apartment" />
+                <ScalarProperty Name="floor" ColumnName="floor" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hazmanas">
+            <EntityTypeMapping TypeName="EfratDBModel.Hazmana">
+              <MappingFragment StoreEntitySet="Hazmana">
+                <ScalarProperty Name="HazmanaCode" ColumnName="HazmanaCode" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="sent" ColumnName="sent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="invitings">
+            <EntityTypeMapping TypeName="EfratDBModel.inviting">
+              <MappingFragment StoreEntitySet="inviting">
+                <ScalarProperty Name="HazmanaCode" ColumnName="HazmanaCode" />
+                <ScalarProperty Name="CodeCustomer" ColumnName="CodeCustomer" />
+                <ScalarProperty Name="dateBuy" ColumnName="dateBuy" />
+                <ScalarProperty Name="dateSent" ColumnName="dateSent" />
+                <ScalarProperty Name="sent" ColumnName="sent" />
+                <ScalarProperty Name="filnalPrice" ColumnName="filnalPrice" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kategors">
+            <EntityTypeMapping TypeName="EfratDBModel.Kategor">
+              <MappingFragment StoreEntitySet="Kategor">
+                <ScalarProperty Name="KategorCode" ColumnName="KategorCode" />
+                <ScalarProperty Name="KategorName" ColumnName="KategorName" />
+                <ScalarProperty Name="KategorPicture" ColumnName="KategorPicture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Koshers">
+            <EntityTypeMapping TypeName="EfratDBModel.Kosher">
+              <MappingFragment StoreEntitySet="Kosher">
+                <ScalarProperty Name="KosherCode" ColumnName="KosherCode" />
+                <ScalarProperty Name="KosherName" ColumnName="KosherName" />
+                <ScalarProperty Name="KosherPicture" ColumnName="KosherPicture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="EfratDBModel.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="ProductPicture" ColumnName="ProductPicture" />
+                <ScalarProperty Name="KosherCode" ColumnName="KosherCode" />
+                <ScalarProperty Name="tari" ColumnName="tari" />
+                <ScalarProperty Name="KategorCode" ColumnName="KategorCode" />
+                <ScalarProperty Name="AmountIn" ColumnName="AmountIn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

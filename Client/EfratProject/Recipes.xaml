@@ -1,0 +1,33 @@
+﻿<Page x:Class="EfratProject.Recipes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EfratProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Recipes" >
+    <Page.Background>
+        <ImageBrush  ImageSource="/pictures/backrround.jpg" />
+    </Page.Background>
+    <StackPanel>
+        <TextBlock Text="מתכונים" FontSize="25" HorizontalAlignment="Center" FontWeight="Bold"  />
+        <WrapPanel FlowDirection="RightToLeft" HorizontalAlignment="Center">
+            <Button Height="165" Click="Bif" >
+                <Image  Source="/pictures/לח1.PNG" />
+            </Button>
+            <Button Height="165" Click="Haros" >
+                <Image Source="/pictures/לח2.PNG" />
+            </Button>
+            <Button Height="165" Click="Pasta">
+                <Image Source="/pictures/לח3.PNG" />
+            </Button>
+            <Button Height="165" Click="tzli">
+                <Image Source="/pictures/לח4.PNG" />
+            </Button> 
+            <Button Height="165" Click="Tavshil">
+                <Image Source="/pictures/לח5.PNG" />
+            </Button>
+        </WrapPanel>
+    </StackPanel>
+</Page>

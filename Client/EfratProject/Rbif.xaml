@@ -1,0 +1,62 @@
+﻿<Page x:Class="EfratProject.Rbif"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EfratProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Rbif" Background="#FF25262C" >
+
+    <Grid  FlowDirection="RightToLeft">
+
+        <WrapPanel FlowDirection="LeftToRight" >
+            <TextBlock Background="#FF25262C" Width="410" />
+            <Image Height="390"  Source="/pictures/מתכון ביף בורגיניון של שף הבית.PNG" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+        </WrapPanel>
+       
+        <StackPanel>
+            <DockPanel HorizontalAlignment="Left"  VerticalAlignment="Top">
+                <Button Background="#FFED7D31" Content="חזור" Click="GoBack" VerticalAlignment="Top"/>
+                <TextBlock Background="#FF25262C" Width="364" />
+            </DockPanel>
+            <WrapPanel>
+                <Image Source="/pictures/233ביף בורגיניון של שף הבית.PNG"  Width="390" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </WrapPanel>
+            <Image  />
+            <WrapPanel>
+                <Image Source="/pictures/ביףףף.PNG"  Width="390" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </WrapPanel>
+            <!--<WrapPanel>
+                <TextBlock Background="White" Text="                                  ביף בורגיניון של שף הבית"  Width="390" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </WrapPanel>-->
+            <WrapPanel>
+                <Image  Source="/pictures/תמונה - ביף בורגיניון של שף הבית.jpg"   Height="189" HorizontalAlignment="Center" Width="389" />
+            </WrapPanel>
+            <TextBlock  Text="יש לנו עוד מתכונים שתאהבו"  Background="White" HorizontalAlignment="Left" Width="389"/>
+            <StackPanel VerticalAlignment="Bottom">
+                <WrapPanel FlowDirection="RightToLeft" >
+                    <Button Height="127" Click="Haros" >
+                        <Image Source="/pictures/לח2.PNG" />
+                    </Button>
+                    <Button Height="127" Click="Pasta">
+                        <Image Source="/pictures/לח3.PNG" />
+                    </Button>
+                    <Button Height="127" Click="tzli">
+                        <Image Source="/pictures/לח4.PNG" />
+                    </Button>
+                    <Button  Height="127" Click="Tavshil">
+                        <Image Source="/pictures/לח5.PNG" />
+                    </Button>
+                </WrapPanel>
+            </StackPanel>
+            <TextBlock Background="#FF25262C" Height="38" Width="313" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <!--<WrapPanel >
+            <Image   Source="/pictures/32ביף בורגיניון של שף הבית.PNG" Width="390" HorizontalAlignment="Right" VerticalAlignment="Top"  />
+        </WrapPanel>-->
+
+
+    </Grid>
+</Page>

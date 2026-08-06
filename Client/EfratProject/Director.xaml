@@ -1,0 +1,25 @@
+﻿<Page x:Class="EfratProject.Director"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EfratProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Director">
+    <Page.Background>
+        <ImageBrush  ImageSource="/pictures/home-cat-2_2.jpg" />
+    </Page.Background>
+    <Grid >
+        <StackPanel  HorizontalAlignment="Center">
+            <!--<TextBlock  Background="Ivory" FontSize="30" Text=" הכנס סיסמת מנהל"/>-->
+            <Image Source="/pictures/directEnter.png" />
+            <!--<PasswordBox Width="150" Name="txt" Password="1234"/>--> 
+            <PasswordBox Width="150" Name="txt" />
+            <Button Background="Transparent" BorderThickness="0" Click="Button_Click_1" IsDefault="True" >
+                <Image Height="53" Source="/pictures/OK.png" />
+                <!--לחצן אישור-->
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>
